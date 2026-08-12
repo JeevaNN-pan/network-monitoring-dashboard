@@ -1,0 +1,30 @@
+# Sample device inventory for the Network Monitoring Dashboard.
+#
+# Replace the "lab-*" entries with your own devices (GNS3, EVE-NG, Cisco
+# Packet Tracer, ContainerLab, or real lab hardware). The public resolver
+# entries below are reachable from almost anywhere, so the dashboard shows
+# real data immediately without any lab setup.
+#
+# check: "ping" uses ICMP. Use "tcp:<port>" (e.g. "tcp:22") for devices or
+# networks where ICMP is filtered.
+
+devices:
+  - name: google-dns
+    ip: 8.8.8.8
+    type: external-resolver
+    check: ping
+
+  - name: cloudflare-dns
+    ip: 1.1.1.1
+    type: external-resolver
+    check: ping
+
+  - name: lab-core-switch
+    ip: 192.168.1.1
+    type: switch
+    check: ping
+
+  - name: lab-edge-router
+    ip: 192.168.1.254
+    type: router
+    check: "tcp:22"
